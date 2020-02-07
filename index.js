@@ -2,6 +2,7 @@
 const express= require('express');
 const path= require('path');
 const ejs= require('ejs');
+const bodyParser= require('body-parser');
 
 const app= express();
 const TemplatesRouter= require('./route/templates');
@@ -12,6 +13,7 @@ const CategoryRouter= require('./route/category');
 
 app.set('view-engine',"ejs");
 app.set('views','./public/views/');
+app.use(bodyParser());
 
 app.use('/bootstrap', express.static('./public/assets/bootstrap-4.4.1-dist/'));
 app.use('/assets', express.static('./public/assets/'));
@@ -19,14 +21,13 @@ app.use('/views', express.static('./public/views/'));
 app.use('/styles', express.static('./public/styles/'));
 app.use('/scripts', express.static('./public/scripts/'));
 
-
 app.use('/templates', TemplatesRouter);
 app.get('/',(req,res)=> {
 	res.render('index.ejs');
 });
 
-// app.use('/question', QuestionRouter);
-// app.use('/category', CategoryRouter);
+app.use('/question', QuestionRouter);
+app.use('/category', CategoryRouter);
 
 app.get('/translate', (req,res)=> {
 	console.log(JSON.stringify(req.query));

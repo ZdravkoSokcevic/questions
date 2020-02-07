@@ -1,0 +1,29 @@
+<!-- <%= JSON.stringify(categories) %> -->
+<%- include('../partials/header') %>
+    <div class="container py-5">
+        <h5>Lista kategorija</h5>
+        <ul class="list-group">
+            <% for(let i=0;i<categories.length;i++){ %>
+                <!-- <li class="list-group-item"><%- categories[i].name %></li> -->
+                <div class="col-12 flex-row">
+                    <div class="col-7">
+                        <a href="" class="list-group-item list-group-item-action list-group-item-primary">
+                            <p><%- categories[i].name %></p>
+                        </a>
+                    </div>
+                    <div class="col-5 text-right">
+                        <a href="" class="text-right">
+                            <i class="fa fa-trash-alt btn-danger text-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+            <% } %>
+        </ul>
+        <div class="form-group text-right">
+            <a href="" class="btn btn-primary my-2">Dodaj kategoriju</a>
+        </div>
+    </div>
+</body>
+</html>

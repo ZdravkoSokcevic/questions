@@ -1,7 +1,7 @@
 const router= require('express').Router();
 const QuestionController= require('../controller/question');
 
-// router.get('/', QuestionController.getQuestion);
+router.get('/', QuestionController.getQuestions);
 // router.get('/insert', QuestionController.loadInsertView);
 // router.post('/insert', QuestionController.insert);
 // router.get('/delete/:id', QuestionController.delete);

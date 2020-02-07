@@ -64,7 +64,7 @@ let Quiz= {
     },
     delete:(id)=> {
         return new Promise((res,rej)=> {
-            db.query("DELETE FROM quiz WHERE id=?",[id],(err,data)=>{
+            db.query("DELETE FROM questions WHERE id=?",[id],(err,data)=>{
                 if(err) {
                     rej(err);
                 }else {
@@ -75,8 +75,10 @@ let Quiz= {
     },
     getAll:()=> {
         return new Promise((res,rej)=> {
-            db.query("SELECT * FROM quiz",(values)=> {
-                res(values);
+            db.query("SELECT * FROM questions",(err,values)=> {
+                if(err)
+                    rej(err)
+                else res(values);
             });
         });
     }

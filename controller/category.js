@@ -1,7 +1,13 @@
 const Category= require('../model/category');
 
 exports.insert= async(req,res)=> {
+    // console.log(req.body);
     let success = await Category.insert(req.body);
+    if(success) {
+        return res.redirect('/category');
+    }else {
+        return res.redirect('/category');
+    }
 }
 
 exports.delete= async(req,res)=> {
@@ -13,9 +19,13 @@ exports.update= async(req,res)=> {
 }
 
 exports.all= async(req,res)=> {
-    let categories= await Category.all();
+    let categories= await Category.getAll();
+    console.log(categories);
+    if(categories) {
+        res.render('category/list.ejs',{categories:categories});
+    }
 }
 
 exports.loadInsertView= (req,res)=> {
-    res.render('templates/category/insert.ejs');
+    res.render('category/insert.ejs');
 }

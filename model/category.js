@@ -44,8 +44,10 @@ let Category= {
     },
     getAll:()=> {
         return new Promise((res,rej)=> {
-            db.query("SELECT * FROM category",(values)=> {
-                res(values);
+            db.query("SELECT * FROM category",(err,values)=> {
+                if(err)
+                    return null;
+                else res(values);
             });
         });
     }

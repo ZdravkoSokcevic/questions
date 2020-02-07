@@ -24,13 +24,14 @@ exports.delete= async(req,res)=> {
 }
 
 exports.loadInsertView= (req,res)=> {
-    res.render('view/question/insert');
+    res.render('questions/insert');
 }
 
-exports.getQuestion= async(req,res)=> {
+exports.getQuestions= async(req,res)=> {
     let data= await Quiz.getAll();
-    let question= await helper.getRandomQuestion(data);
-    res.render('view/questions/showone.ejs');
+    console.log(data);
+    // let question= await helper.getRandomQuestion(data);
+    res.render('questions/all.ejs',{questions:data});
 }
 
 

@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Pitanja</th>
+        <th scope="col">Akcije</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% for(let i=0;i<questions.length;i++) { %>
+            <tr>
+            <td><%- question.question %></td>
+                <td class="row">
+                <a href="#" role="button" class="icon-btn orange mx-1"><i class="fas fa-edit"></i></a>
+                <form action="" class="mx-1">
+                    <button class="icon-btn red" type="submit"><i class="fas fa-trash"></i></button>
+                </form>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+  </table>
