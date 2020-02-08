@@ -5,7 +5,9 @@ router.get('/', CategoryController.all);
 router.get('/insert', CategoryController.loadInsertView);
 router.post('/insert', CategoryController.insert);
 router.get('/delete/:id', CategoryController.delete);
-router.get('/update/:id', CategoryController.update);
+
+router.get('/update/:id', CategoryController.loadUpdateView);
+router.post('/update/:id', CategoryController.update);
 
 
 module.exports= router;

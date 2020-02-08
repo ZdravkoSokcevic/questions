@@ -22,7 +22,7 @@ let Category= {
                 SET name= ?
                 WHERE id=?;
             `;
-            db.query(query,data.name,(err,data)=> {
+            db.query(query,[data.name,id],(err,data)=> {
                 if(err) {
                     rej(err);
                 }else {
@@ -47,6 +47,20 @@ let Category= {
             db.query("SELECT * FROM category",(err,values)=> {
                 if(err)
                     return null;
+                else res(values);
+            });
+        });
+    },
+    loadById: (id)=> {
+        return new Promise((res,rej)=> {
+            let query=`
+                SELECT * 
+                FROM category
+                WHERE id=?
+            `;
+            db.query(query,[id] ,(err,values)=> {
+                if(err)
+                    rej(err);
                 else res(values);
             });
         });

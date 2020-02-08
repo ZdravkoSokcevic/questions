@@ -1,0 +1,57 @@
+
+.back {
+	background-image: url(assests/photos/mozgalice.jpg);
+	background-repeat: no-repeat;
+}
+
+.back img {
+	width: 100%;
+}
+
+p {
+	font-size: 22px;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+}
+.image img {
+	width: 150px;
+	height: 50px;
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+	background-color: #63B8FF;
+}
+
+
+.menu3 {
+	width: 100%;
+	text-align: center;
+	margin-left: 300px;
+}
+
+.menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+/*.text {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}*/
+.text img {
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+	border-radius: 50px;
+}

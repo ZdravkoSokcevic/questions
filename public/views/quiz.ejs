@@ -1,0 +1,66 @@
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
+
+<script>
+    var x=[];
+    var obj={};
+</script>
+<% questions.forEach(element=> {%>
+        <script>
+            obj= {
+                id:'<%= element.id %>',
+                question: '<%= element.question %>',
+                first_answer: '<%= element.first_answer %>',
+                second_answer: '<%= element.second_answer %>',
+                third_answer: '<%= element.third_answer %>',
+                fourth_answer: '<%= element.fourth_answer %>',
+                true_answer: '<%= element.true_answer %>',
+            }
+            x.push(obj);
+        </script>
+<% }) %>
+
+
+<link rel="stylesheet" href="/styles/quiz.css">
+<link rel="stylesheet" href="/assets/jqueryui.css">
+<div class="container">
+    <div class="jumbotron jumbotron-fluid flex">
+        <div class="container">
+            <h1 class="display-4 py-5" id="question" style="margin-left: 20%;">Fluid jumbotron</h1>
+            <p class="d-inline-block"> <p> Score:</p> <p class="lead" id="score"> </p>
+            </p>
+        </div>
+        <div class="form-row my-4">
+            <div class="form-group col-md-4" style="margin-left: 10%;">
+                <!-- <label for="inputEmail4">Email</label> -->
+                <button class="form-control answers" data-src="1" id="answer_1"></button>
+            </div>
+            <div class="form-group col-md-4" style="margin-left: 10%;">
+                <!-- <label for="inputEmail4">Email</label> -->
+                <button class="form-control answers" data-src="2" id="answer_2"></button>
+            </div>
+        </div>
+        <div class="form-row my-4">
+            <div class="form-group col-md-4" style="margin-left: 10%;">
+                <!-- <label for="inputEmail4">Email</label> -->
+                <button class="form-control answers" data-src="3" id="answer_3"></button>
+            </div>
+            <div class="form-group col-md-4 " style="margin-left: 10%;">
+                <!-- <label for="inputEmail4">Email</label> -->
+                <button class="form-control answers" data-src="4" id="answer_4"></button>
+            </div>
+        </div>
+        <div class="form-group text-right px-5" style="margin-right: 8%;">
+            <button class="btn btn-danger" id="next_question">Sledece</button>
+        </div>
+    </div>
+
+</div>
+<div class="progress">
+    <div id="progress-bar" role="progressbar" data-transitiongoal="75"></div>
+  </div>
+
+<script src="/assets/jquery.js"></script>
+<script src="/assets/jqueryui.js"></script>
+<script src="/assets/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="/scripts/quiz.js"></script>

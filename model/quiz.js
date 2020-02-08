@@ -45,13 +45,15 @@ let Quiz= {
                     true_answer=?
                 WHERE id=?;
             `;
+            console.log(data);
             let params=[
                 data.question,
                 data.first_answer,
                 data.second_answer,
                 data.third_answer,
                 data.fourth_answer,
-                data.true_answer
+                parseInt(data.true_answer),
+                id
             ];
             db.query(query,params,(err,data)=> {
                 if(err) {
@@ -75,9 +77,31 @@ let Quiz= {
     },
     getAll:()=> {
         return new Promise((res,rej)=> {
-            db.query("SELECT * FROM questions",(err,values)=> {
+            db.query("SELECT * FROM questions",(err,values,fields)=> {
                 if(err)
                     rej(err)
+                else {
+                    let ret_data=[];
+                    data= JSON.parse(JSON.stringify(values));
+                    // data.forEach(elem=> {
+                    //     ret_data.push(elem);
+                    // });
+                    // console.log(ret_data)
+                    res(data);
+                }
+            });
+        });
+    },
+    loadById: (id)=> {
+        return new Promise((res,rej)=> {
+            let query=`
+                SELECT * 
+                FROM questions
+                WHERE id=?
+            `;
+            db.query(query,[id] ,(err,values)=> {
+                if(err)
+                    rej(err);
                 else res(values);
             });
         });

@@ -1,0 +1,33 @@
+.main_table {
+    width: 100%; 
+    height: 500px; 
+    border-collapse: separate; 
+    border-spacing: 50px;
+}
+.main_tr {
+    height: 100px;
+    position: relative;
+}
+.main_tr > th {
+    text-align: center; 
+    vertical-align: middle;  
+    background-color: #03979C;
+}
+
+.score {
+    background-color: #03979C;
+}
+
+.answers {
+    vertical-align: middle; 
+    background-color: #03979C;
+}
+
+.answers_card_inside {
+    display: flex;
+    vertical-align: middle;
+}
+
+.answers:hover {
+    color:blue;
+}

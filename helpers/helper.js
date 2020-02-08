@@ -29,3 +29,28 @@ exports.translate= (string)=> {
 
     });
 }
+let exists= (collect_data,item)=> {
+    // console.log(typeof collect_data);
+    collect_data.forEach(element=> {
+        if(element.id==item.id) {
+            return true;
+        }
+    });
+    return false;
+}
+
+exports.getRandomQuestions= (data)=> {
+    let arr_data=[];
+    if(data.length>10)
+    {
+        console.log(arr_data);
+        while(arr_data.length<9)
+        {
+            var item = data[Math.floor(Math.random()*data.length)];
+            if(!exists(arr_data,item))
+                arr_data.push(item);
+        }
+        return arr_data;
+    }else return null;
+
+}

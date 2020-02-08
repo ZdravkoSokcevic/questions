@@ -1,0 +1,88 @@
+<%- include('./partials/header')%>
+<%- include('./partials/nav.ejs') %>
+<script>
+    var x=[];
+    var obj={};
+</script>
+    <% questions.forEach(element=> {%>
+            <script>
+                obj= {
+                    id:'<%= element.id %>',
+                    question: '<%= element.question %>',
+                    first_answer: '<%= element.first_answer %>',
+                    second_answer: '<%= element.second_answer %>',
+                    third_answer: '<%= element.third_answer %>',
+                    fourth_answer: '<%= element.fourth_answer %>',
+                    true_answer: '<%= element.true_answer %>',
+                }
+                x.push(obj);
+            </script>
+    <% }) %>
+<script>
+    // console.log(x);
+</script>
+<style>
+    body {
+        background-image: url('/assets/images/maxresdefault.jpg');
+    }
+</style>
+<link rel="stylesheet" href="/styles/quiz.css">
+
+<div class="container my-5">
+	
+    <table class="table table-bordered text-center table-hover main_table">
+        <tr class="main_tr">
+            <th colspan="2" id="question">koliko ostrva ima bajkalsko jezero?</th>
+            
+        </tr>
+        <tr>
+            <th class="text-left score" id="timer">1</th>
+            <th class="text-right score" id="score">1</th>
+        </tr>
+        <tbody> 
+            <tr>
+                <th width="50%" scope="row" class="answers">
+                    <div class="col-12 flex-row align-middle answers_card_inside">
+                        <div class="col-6">A:</div>
+                        <div class="col-6" data-src="1" id="answer_1">35</div>
+                    </div>
+                </th>
+                <th width="50%" scope="row" class="answers" >
+                    <div class="col-12 flex-row align-middle answers_card_inside">
+                        <div class="col-6">B:</div>
+                        <div class="col-6" data-src="2" id="answer_2">35</div>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th width="50%" scope="row" class="answers">
+                <div class="col-12 flex-row align-middle answers_card_inside">
+                        <div class="col-6">C:</div>
+                        <div class="col-6" data-src="3" id="answer_3">35</div>
+                </div>
+                </th>
+                <th width="50%" scope="row" class="answers">
+                    <div class="col-12 flex-row align-middle answers_card_inside">
+                        <div class="col-6">D:</div>
+                        <div class="col-6" data-src="4" id="answer_4">35</div>
+                    </div>
+                </th>
+            </tr>
+        </tbody>
+    </table>
+    <div class="form-group text-right">
+        <button class="btn btn-danger" id="next_question">Sledece</button>
+    </div>
+</div>	
+<footer class="page-footer font-small blue">
+
+
+
+
+</script>
+
+</body>
+</html>
+<script src="/assets/jquery.js"></script>
+<script src="/assets/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="/scripts/quiz.js"></script>

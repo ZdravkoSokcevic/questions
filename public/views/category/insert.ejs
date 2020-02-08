@@ -1,8 +1,10 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %> 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>kefalica Leskovac</title>
-	<link rel="stylesheet" type="text/css" href="kefalica.css" >
+	<!-- <link rel="stylesheet" type="text/css" href="/kefalica.css" > -->
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -20,6 +22,7 @@
 			    	<input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter category">
 				  </div>
 				<div class="form-group text-right">
+					<a type="submit" name="submit" class="btn btn-primary text-right" href="/category">Lista kategorija</a>
 					<button type="submit" name="submit" class="btn btn-primary text-right">Unesi</button>
 
 				</div>
@@ -27,4 +30,5 @@
 		</div>
     </div>
 </body>
+<script src="/assets/jquery.js"></script>
 <script src="/bootstrap/js/bootstrap.min.js"></script>

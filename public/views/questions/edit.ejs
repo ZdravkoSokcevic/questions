@@ -1,0 +1,52 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+<body>
+	<div class="container py-5">
+		<div class="row ">
+			<form style="width: 100%" action="/question/update/<%- data[0].id %>" method="POST">
+			  	<div class="form-group">
+			    	<label for="exampleInputEmail1">Izmenite pitanje</label>
+			    	<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="izmenite pitanje" name="question" value="<%- data[0].question %>">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="example_answer_1">Odgovor 1</label>
+			    	<input type="text" class="form-control" id="example_answer_1" aria-describedby="emailHelp" placeholder="odovor" name="first_answer" value="<%- data[0].first_answer %>">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="example_answer_2">Odgovor 2</label>
+			    	<input type="text" class="form-control" id="example_answer_2" aria-describedby="emailHelp" placeholder="odovor" name="second_answer" value="<%- data[0].second_answer %>">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="example_answer_3">Odgovor 3</label>
+			    	<input type="text" class="form-control" id="example_answer_3" aria-describedby="emailHelp" placeholder="odovor" name="third_answer" value="<%- data[0].third_answer %>">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="example_answer_4">Odgovor 4</label>
+			    	<input type="text" class="form-control" id="example_answer_4" aria-describedby="emailHelp" placeholder="odovor" name="fourth_answer" value="<%- data[0].fourth_answer %>">
+			  	</div>
+			  	<div class="form-group">
+			    	<label for="exampleInputEmail1">Tacan odgovor je:</label>
+			    	<input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="tacan odovor" name="true_answer" value="<%- data[0].true_answer %>">
+                </div>
+                <div class="form-group">
+                    <label for="category_id">Kategorija</label>
+                    <select class="form-control" name="category_id" id="category_id">
+                        <% for(let i=0;i<categories.length;i++) { %>
+                            <option value="<%- categories[i].name %>"><%- categories[i].name %></option>
+                        <% } %>
+                    </select>
+                </div>
+                <div class="form-group text-right">
+					<a  name="submit" class="btn btn-primary" href="/question/">Lista pitanja</a>
+                    <button type="submit" name="submit" class="btn btn-primary">Izmenite pitanje</button>
+                </div>  
+			</form>
+		</div>
+	</div>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+</script>
+
+</body>
+</html>
